@@ -7,13 +7,13 @@ import java.util.ArrayList;
 public class Class {
     String name;
     String professor;
+    GradingScale gradingScale;
     ArrayList<Coursework> courseWork;
     ArrayList<Category> categories;
-    boolean plusMinusScale;
-    boolean passFail;
 
-    public Class(String name) {
+    public Class(String name, GradingScale gradingScale) {
         this.name = name;
+        this.gradingScale = gradingScale;
         courseWork = new ArrayList<Coursework>();
         categories = new ArrayList<Category>();
     }
@@ -50,19 +50,7 @@ public class Class {
         return categories;
     }
 
-    public boolean isPlusMinusScale() {
-        return plusMinusScale;
-    }
-
-    public void setPlusMinusScale(boolean plusMinusScale) {
-        this.plusMinusScale = plusMinusScale;
-    }
-
-    public boolean isPassFail() {
-        return passFail;
-    }
-
-    public void setPassFail(boolean passFail) {
-        this.passFail = passFail;
+    public GradingScale getGradingScale() {
+        return gradingScale;
     }
 }

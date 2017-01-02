@@ -1,3 +1,5 @@
+import Exceptions.InvalidCourseworkException;
+
 /**
  * Created by Connor Borzello on 1/1/2017.
  * Description:
@@ -12,7 +14,7 @@ public class Coursework {
     boolean extraCredit;
 
     public Coursework(String name, String category, double score, double pointsPossible, boolean isPercentage)
-            throws InvalidCourseworkException{
+            throws InvalidCourseworkException {
         if(name == null || category == null) {
             throw new InvalidCourseworkException("Invalid Coursework");
         }else if(pointsPossible < 0) {

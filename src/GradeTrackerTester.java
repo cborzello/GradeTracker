@@ -1,3 +1,4 @@
+import Exceptions.InvalidCourseworkException;
 import org.junit.jupiter.api.Test;
 
 /**
