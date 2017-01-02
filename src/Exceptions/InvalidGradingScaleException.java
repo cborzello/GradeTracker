@@ -1,3 +1,5 @@
+package Exceptions;
+
 /**
  * Created by Connor Borzello on 1/1/2017.
  * Description:

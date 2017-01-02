@@ -39,7 +39,7 @@ public class Coursework {
         }
     }
     private double calculatePercentage(){
-        return pointsEarned / pointsPossible;
+        return pointsEarned / pointsPossible *100;
     }
     private double calculateScore() {
         return .01 * percentage * pointsPossible;
