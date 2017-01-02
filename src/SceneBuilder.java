@@ -1,6 +1,7 @@
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -71,34 +72,34 @@ public class SceneBuilder{
 
         borderPane.setCenter(leftFlowPane);
 
-            FlowPane rightFlowPane = new FlowPane();
-            rightFlowPane.setVgap(40);
-            rightFlowPane.setMaxWidth(defaultWidth/3);
-            double padding = 40;
+            TilePane rightTilePane = new TilePane(Orientation.VERTICAL);
+            rightTilePane.setPrefRows(10);
+            rightTilePane.setTileAlignment(Pos.BASELINE_CENTER);
+            rightTilePane.setVgap(40);
+            rightTilePane.setMaxWidth(defaultWidth/3);
+            rightTilePane.setPadding(new Insets(30, 0, 0, 10));
 
 
             Button overview = new Button("Overview");
-            rightFlowPane.getChildren().add(overview);
+            rightTilePane.getChildren().add(overview);
 
             Button finalsCalc = new Button("Finals Calc");
-            rightFlowPane.getChildren().add(finalsCalc);
+            rightTilePane.getChildren().add(finalsCalc);
 
             Button classView = new Button("Class View");
-            rightFlowPane.getChildren().add(classView);
+            rightTilePane.getChildren().add(classView);
 
             Button editClass = new Button("Edit Class");
-            rightFlowPane.getChildren().add(editClass);
+            rightTilePane.getChildren().add(editClass);
 
             Text semesterGPA = new Text("Semester GPA");
-            semesterGPA.setFont(Font.font(40));
+            semesterGPA.setFont(Font.font("Arial", FontWeight.BOLD,40));
             semesterGPA.setId("Black");
-            rightFlowPane.getChildren().add(semesterGPA);
-
-            rightFlowPane.setPadding(new Insets(30, 0, 0, 30));
+            rightTilePane.getChildren().add(semesterGPA);
 
 
 
-        borderPane.setRight(rightFlowPane);
+        borderPane.setRight(rightTilePane);
 
         menuScene = new Scene(borderPane, defaultWidth, defaultHeight);
         menuScene.getStylesheets().add
