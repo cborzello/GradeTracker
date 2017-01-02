@@ -7,18 +7,18 @@ import java.util.ArrayList;
 public class Class {
     String name;
     String professor;
-    ArrayList<CourseWork> courseWork;
+    ArrayList<Coursework> courseWork;
     ArrayList<Category> categories;
     boolean plusMinusScale;
     boolean passFail;
 
     public Class(String name) {
         this.name = name;
-        courseWork = new ArrayList<CourseWork>();
+        courseWork = new ArrayList<Coursework>();
         categories = new ArrayList<Category>();
     }
 
-    public void addCourseWork(CourseWork cw) {
+    public void addCourseWork(Coursework cw) {
         courseWork.add(cw);
     }
 
@@ -42,7 +42,7 @@ public class Class {
         this.professor = professor;
     }
 
-    public ArrayList<CourseWork> getCourseWork() {
+    public ArrayList<Coursework> getCourseWork() {
         return courseWork;
     }
 
