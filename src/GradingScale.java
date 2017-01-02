@@ -16,12 +16,15 @@ public class GradingScale {
     double cMinusLowerBound, cMinusUpperBound, cPlusLowerBound, cPlusUpperBound;
     double bMinusLowerBound, bMinusUpperBound, bPlusLowerBound, bPlusUpperBound;
     double aMinusLowerBound, aMinusUpperBound, aPlusLowerBound;
+    int round;
+    public static int ROUND = 0, ROUNDUP = 1, ROUNDDOWN = 2;
 
-    public GradingScale(boolean percentageBased, double[] bounds) throws InvalidGradingScaleException {
+    public GradingScale(boolean percentageBased, double[] bounds, int round) throws InvalidGradingScaleException {
         if(bounds.length != 8 && bounds.length != 24) {
             throw new InvalidGradingScaleException("Wrong number of bounds");
         }
         this.percentageBased = percentageBased;
+        this.round = round;
         checkValidBounds(bounds);
         if(bounds.length == 8) {
             plusMinusScale = false;
@@ -82,6 +85,13 @@ public class GradingScale {
         }
     }
     public String getGrade(double score) {
+        if(round == ROUND) {
+            score = Math.round(score);
+        } else if(round == ROUNDUP) {
+            score = Math.ceil(score);
+        } else if(round == ROUNDDOWN) {
+            score = Math.floor(score);
+        }
         if(score <= fUpperBound) {
             return "F";
         }else if(score >= dLowerBound && score <= dUpperBound) {

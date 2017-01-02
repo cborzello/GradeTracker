@@ -18,6 +18,17 @@ public class Class {
         categories = new ArrayList<Category>();
     }
 
+    private String calculateGrade() {
+        double totalPointsEarned;
+        double totalPointsPossible;
+        double totalPercentage;
+
+        return "";
+    }
+    public String getGrade() {
+        return calculateGrade();
+    }
+
     public void addCourseWork(Coursework cw) {
         courseWork.add(cw);
     }
