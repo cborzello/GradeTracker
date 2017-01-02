@@ -1,5 +1,5 @@
 .root {
-    -fx-background-image: url("Background.png");
+    -fx-background-image: url("Pics/background.png");
 }
 .button{
     -fx-background-color:
@@ -13,7 +13,7 @@
     -fx-font: 40px Arial ;
 }
 .altBackground {
-    -fx-background-image: url("alternateDarkBackground.png");
+    -fx-background-image: url("Pics/alternateDarkBackground.png");
 }
 #silver{
     -fx-fill: #c3c4c4;

@@ -1,4 +1,3 @@
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
@@ -11,8 +10,6 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-
-import java.awt.*;
 
 /**
  * Created by Connor Borzello on 12/31/2016.
@@ -32,7 +29,7 @@ public class SceneBuilder{
         borderPane.setTop(titleBox);
 
         ImageView imageView = new ImageView();
-        imageView.setImage(new Image("Purdue Logo.png"));
+        imageView.setImage(new Image("Pics/Purdue Logo.png"));
         imageView.setFitWidth(defaultWidth);
         imageView.setPreserveRatio(true);
         imageView.setSmooth(true);
