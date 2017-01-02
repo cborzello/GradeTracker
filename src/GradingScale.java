@@ -18,54 +18,49 @@ public class GradingScale {
     double aMinusLowerBound, aMinusUpperBound, aPlusLowerBound;
 
     public GradingScale(boolean percentageBased, double[] bounds) throws InvalidGradingScaleException {
-        if(bounds.length != 8) {
+        if(bounds.length != 8 && bounds.length != 24) {
             throw new InvalidGradingScaleException("Wrong number of bounds");
         }
         this.percentageBased = percentageBased;
         checkValidBounds(bounds);
-        plusMinusScale = false;
+        if(bounds.length == 8) {
+            plusMinusScale = false;
+            fUpperBound = bounds[0];
+            dLowerBound = bounds[1];
+            dUpperBound = bounds[2];
+            cLowerBound = bounds[3];
+            cUpperBound = bounds[4];
+            bLowerBound = bounds[5];
+            bUpperBound = bounds[6];
+            aLowerBound = bounds[7];
+        } else if(bounds.length == 24) {
+            this.plusMinusScale = true;
 
-        fUpperBound = bounds[0];
-        dLowerBound = bounds[1];
-        dUpperBound = bounds[2];
-        cLowerBound = bounds[3];
-        cUpperBound = bounds[4];
-        bLowerBound = bounds[5];
-        bUpperBound = bounds[6];
-        aLowerBound = bounds[7];
-    }
-    public GradingScale(boolean percentageBased,double[] bounds, boolean plusMinusScale) throws InvalidGradingScaleException{
-        if(bounds.length != 24) {
-            throw new InvalidGradingScaleException("Wrong number of bounds");
+            fUpperBound = bounds[0];
+            dMinusLowerBound = bounds[1];
+            dMinusUpperBound = bounds[2];
+            dLowerBound = bounds[3];
+            dUpperBound = bounds[4];
+            dPlusLowerBound = bounds[5];
+            dPlusUpperBound = bounds[6];
+            cMinusLowerBound = bounds[7];
+            cMinusUpperBound = bounds[8];
+            cLowerBound = bounds[9];
+            cUpperBound = bounds[10];
+            cPlusLowerBound = bounds[11];
+            cPlusUpperBound = bounds[12];
+            bMinusLowerBound = bounds[13];
+            bMinusUpperBound = bounds[14];
+            bLowerBound = bounds[15];
+            bUpperBound = bounds[16];
+            bPlusLowerBound = bounds[17];
+            bPlusUpperBound = bounds[18];
+            aMinusLowerBound = bounds[19];
+            aMinusUpperBound = bounds[20];
+            aLowerBound = bounds[21];
+            aUpperBound = bounds[22];
+            aPlusLowerBound = bounds[23];
         }
-        this.percentageBased = true;
-        checkValidBounds(bounds);
-        this.plusMinusScale = true;
-
-        fUpperBound = bounds[0];
-        dMinusLowerBound = bounds[1];
-        dMinusUpperBound = bounds[2];
-        dLowerBound = bounds[3];
-        dUpperBound = bounds[4];
-        dPlusLowerBound = bounds[5];
-        dPlusUpperBound = bounds[6];
-        cMinusLowerBound = bounds[7];
-        cMinusUpperBound = bounds[8];
-        cLowerBound = bounds[9];
-        cUpperBound = bounds[10];
-        cPlusLowerBound = bounds[11];
-        cPlusUpperBound = bounds[12];
-        bMinusLowerBound = bounds[13];
-        bMinusUpperBound = bounds[14];
-        bLowerBound = bounds[15];
-        bUpperBound = bounds[16];
-        bPlusLowerBound = bounds[17];
-        bPlusUpperBound = bounds[18];
-        aMinusLowerBound = bounds[19];
-        aMinusUpperBound = bounds[20];
-        aLowerBound = bounds[21];
-        aUpperBound = bounds[22];
-        aPlusLowerBound = bounds[23];
     }
     public void checkValidBounds(double [] bounds) throws InvalidGradingScaleException{
         if(bounds[0] < 0) {

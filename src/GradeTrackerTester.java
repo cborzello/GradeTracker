@@ -38,7 +38,7 @@ public class GradeTrackerTester {
         double[] bounds = {
                 59, 60, 62, 63, 67, 68, 69, 70, 72, 73, 77, 78, 79, 80, 82, 83, 87, 88, 89, 90, 92, 93, 97, 98
         };
-        GradingScale gradingScale = new GradingScale(false, bounds, true);
+        GradingScale gradingScale = new GradingScale(false, bounds);
         assertEquals("A+", gradingScale.getGrade(200));
     }
     @Test
@@ -46,7 +46,7 @@ public class GradeTrackerTester {
         double[] bounds = {
                 59, 60, 62, 63, 67, 68, 69, 70, 72, 73, 77, 78, 79, 80, 82, 83, 87, 88, 89, 90, 92, 93, 97, 98
         };
-        GradingScale gradingScale = new GradingScale(false, bounds, true);
+        GradingScale gradingScale = new GradingScale(false, bounds);
         assertEquals("C-", gradingScale.getGrade(72));
     }
     @Test
@@ -72,7 +72,7 @@ public class GradeTrackerTester {
             double[] bounds = {
                     59, 60, 62, 63, 67, 68, 69, 70, 72, 73, 77, 78, 79, 80, 82, 83, 87, 88, 89, 90, 92, 93, 97, 102
             };
-            new GradingScale(false, bounds, true);
+            new GradingScale(false, bounds);
         }catch (InvalidGradingScaleException e) {
             System.out.println(e.getMessage());
             thrown = true;
