@@ -122,4 +122,8 @@ public class GradingScale {
             return null;
         }
     }
+
+    public boolean isPercentageBased() {
+        return percentageBased;
+    }
 }

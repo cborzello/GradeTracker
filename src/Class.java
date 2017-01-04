@@ -8,20 +8,41 @@ public class Class {
     String name;
     String professor;
     GradingScale gradingScale;
-    ArrayList<Coursework> courseWork;
+    ArrayList<Coursework> courseworks;
     ArrayList<Category> categories;
 
     public Class(String name, GradingScale gradingScale) {
         this.name = name;
         this.gradingScale = gradingScale;
-        courseWork = new ArrayList<Coursework>();
+        courseworks = new ArrayList<Coursework>();
         categories = new ArrayList<Category>();
     }
 
     private String calculateGrade() {
-        double totalPointsEarned;
-        double totalPointsPossible;
-        double totalPercentage;
+        double totalScore = 0;
+
+        for(int i = 0; i < categories.size(); i++) {
+            Category category = categories.get(i);
+            double categoryPointsEarned = 0;
+            double categoryPointsPossible = 0;
+            double categoryScore = 0;
+            for(int j = 0; j < courseworks.size(); j++) {
+                Coursework coursework = courseworks.get(j);
+                if(coursework.getCategory().equals(category)) {
+                    categoryPointsEarned += coursework.getPointsEarned();
+                    categoryPointsPossible += coursework.getPointsPossible();
+                }
+            }
+            categoryScore = category.getWeight() * (categoryPointsEarned / categoryPointsPossible);
+            totalScore += categoryScore;
+        }
+
+        if(gradingScale.isPercentageBased()) {
+            return gradingScale.getGrade(totalScore * .01);
+        } else if(!gradingScale.isPercentageBased()) {
+            return gradingScale.getGrade(totalScore);
+        }
+
 
         return "";
     }
@@ -29,8 +50,8 @@ public class Class {
         return calculateGrade();
     }
 
-    public void addCourseWork(Coursework cw) {
-        courseWork.add(cw);
+    public void addCoursework(Coursework cw) {
+        courseworks.add(cw);
     }
 
     public void addCategory(Category category) {
@@ -53,8 +74,8 @@ public class Class {
         this.professor = professor;
     }
 
-    public ArrayList<Coursework> getCourseWork() {
-        return courseWork;
+    public ArrayList<Coursework> getcoursework() {
+        return courseworks;
     }
 
     public ArrayList<Category> getCategories() {
