@@ -23,28 +23,31 @@ public class Class {
 
         for(int i = 0; i < categories.size(); i++) {
             Category category = categories.get(i);
+            System.out.println("CATEGORY: " + category.getName());
             double categoryPointsEarned = 0;
             double categoryPointsPossible = 0;
-            double categoryScore = 0;
+            double categoryScore;
             for(int j = 0; j < courseworks.size(); j++) {
                 Coursework coursework = courseworks.get(j);
-                if(coursework.getCategory().equals(category)) {
+                System.out.println("Coursework: " + coursework.getCategory());
+                if(coursework.getCategory().equals(category.getName())) {
                     categoryPointsEarned += coursework.getPointsEarned();
+                    System.out.println(categoryPointsEarned);
                     categoryPointsPossible += coursework.getPointsPossible();
+                    System.out.println(categoryPointsPossible);
                 }
             }
             categoryScore = category.getWeight() * (categoryPointsEarned / categoryPointsPossible);
             totalScore += categoryScore;
         }
+        System.out.println("TOTAL SCORE: " + totalScore);
 
         if(gradingScale.isPercentageBased()) {
             return gradingScale.getGrade(totalScore * .01);
         } else if(!gradingScale.isPercentageBased()) {
             return gradingScale.getGrade(totalScore);
         }
-
-
-        return "";
+        return null;
     }
     public String getGrade() {
         return calculateGrade();

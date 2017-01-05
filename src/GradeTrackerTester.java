@@ -19,9 +19,27 @@ public class GradeTrackerTester {
         Class class1 = new Class("Calculus", gradingScale);
         Category category = new Category("Exam", 100, true);
         class1.addCategory(category);
-        Coursework coursework = new Coursework("Final Exam", "Final", 40, 50, false);
+        Coursework coursework = new Coursework("Final Exam", "Exam", 40, 50, false);
         class1.addCoursework(coursework);
         assertEquals("B", class1.getGrade());
+    }
+
+    @Test
+    public void testTwoCorrectGradeClass() throws InvalidGradingScaleException, InvalidCourseworkException{
+        double[] bounds = {
+                59, 60, 69, 70, 79, 80, 89, 90
+        };
+        GradingScale gradingScale = new GradingScale(false, bounds, GradingScale.ROUND);
+        Class class1 = new Class("Calculus", gradingScale);
+        Category category = new Category("Exam", 90, true);
+        Category category2 = new Category("Homework", 10, true);
+        class1.addCategory(category);
+        class1.addCategory(category2);
+        Coursework coursework = new Coursework("Final Exam", "Exam", 50, 50, false);
+        class1.addCoursework(coursework);
+        Coursework coursework2 = new Coursework("HW1" , "Homework", 50, 20, true);
+        class1.addCoursework(coursework2);
+        assertEquals("A", class1.getGrade());
     }
 
     @Test
