@@ -27,7 +27,6 @@ public class GradeTracker extends Application implements EventHandler {
 
         primaryStage.setScene(titleScene);
         primaryStage.show();
-
     }
 
     @Override
@@ -39,6 +38,9 @@ public class GradeTracker extends Application implements EventHandler {
             if(buttonId.equals("Start")) {
                 Scene menu = SceneBuilder.BuildMenuScene(this);
                 primaryStage.setScene(menu);
+            }else if(buttonId.equals("NewClass")) {
+                Scene newClass = SceneBuilder.BuildNewClassScene(this);
+                primaryStage.setScene(newClass);
             }
         }
     }

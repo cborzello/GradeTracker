@@ -16,7 +16,7 @@ public class GradeTrackerTester {
                 59, 60, 69, 70, 79, 80, 89, 90
         };
         GradingScale gradingScale = new GradingScale(false, bounds, GradingScale.ROUND);
-        Class class1 = new Class("Calculus", gradingScale);
+        Class class1 = new Class("Calculus", "Professor Connor", gradingScale);
         Category category = new Category("Exam", 100, true);
         class1.addCategory(category);
         Coursework coursework = new Coursework("Final Exam", "Exam", 40, 50, false);
@@ -30,7 +30,7 @@ public class GradeTrackerTester {
                 59, 60, 69, 70, 79, 80, 89, 90
         };
         GradingScale gradingScale = new GradingScale(false, bounds, GradingScale.ROUND);
-        Class class1 = new Class("Calculus", gradingScale);
+        Class class1 = new Class("Calculus", "Professor Connor", gradingScale);
         Category category = new Category("Exam", 90, true);
         Category category2 = new Category("Homework", 10, true);
         class1.addCategory(category);
@@ -48,7 +48,7 @@ public class GradeTrackerTester {
                 59, 60, 69, 70, 79, 80, 89, 90
         };
         GradingScale gradingScale = new GradingScale(false, bounds, GradingScale.ROUND);
-        Class class1 = new Class("Calculus", gradingScale);
+        Class class1 = new Class("Calculus", "Professor Connors", gradingScale);
         assertEquals("Calculus", class1.getName());
     }
 

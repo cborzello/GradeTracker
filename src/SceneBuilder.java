@@ -1,9 +1,12 @@
 import javafx.event.EventHandler;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -78,16 +81,24 @@ public class SceneBuilder{
 
 
             Button overview = new Button("Overview");
+            overview.setId("Overview");
+            overview.setOnAction(eventHandler);
             rightTilePane.getChildren().add(overview);
 
             Button finalsCalc = new Button("Finals Calc");
+            finalsCalc.setId("FinalsCalc");
+            finalsCalc.setOnAction(eventHandler);
             rightTilePane.getChildren().add(finalsCalc);
 
-            Button classView = new Button("Class View");
+            Button classView = new Button("View Class");
+            classView.setId("ViewClass");
+            classView.setOnAction(eventHandler);
             rightTilePane.getChildren().add(classView);
 
-            Button editClass = new Button("Edit Class");
-            rightTilePane.getChildren().add(editClass);
+            Button newClass = new Button("New Class");
+            newClass.setId("NewClass");
+            newClass.setOnAction(eventHandler);
+            rightTilePane.getChildren().add(newClass);
 
             Text semesterGPA = new Text("Semester GPA");
             semesterGPA.setFont(Font.font("Arial", FontWeight.BOLD,40));
@@ -102,5 +113,146 @@ public class SceneBuilder{
         menuScene.getStylesheets().add
                 (GradeTracker.class.getResource("Theme.css").toExternalForm());
         return menuScene;
+    }
+
+    public static Scene BuildNewClassScene(EventHandler eventHandler) {
+        Scene newClassScene;
+        GridPane gridPane = new GridPane();
+        gridPane.setAlignment(Pos.TOP_LEFT);
+        gridPane.setVgap(20);
+        gridPane.setHgap(10);
+        gridPane.setPadding(new Insets(insetSize, insetSize, insetSize, insetSize));
+        Font entryFont = Font.font("Arial", 20);
+        Font boldEntryFont = Font.font("Arial", FontWeight.BOLD, 25);
+
+        Text classText = new Text("Class Name:  ");
+        classText.setFont(boldEntryFont);
+        TextField classField = new TextField();
+        classField.setFont(entryFont);
+        gridPane.add(classText, 0, 0);
+        gridPane.add(classField, 1, 0);
+
+        Text professorText = new Text("Professor:     ");
+        professorText.setFont(boldEntryFont);
+        TextField professorField = new TextField();
+        professorField.setFont(entryFont);
+        gridPane.add(professorText,0, 1);
+        gridPane.add(professorField, 1, 1);
+
+        Text f = new Text("F");
+        Text dMinus = new Text("D-");
+        Text d = new Text("D");
+        Text dPlus = new Text("D+");
+        Text cMinus = new Text("C-");
+        Text c = new Text("C");
+        Text cPlus = new Text("C+");
+        Text bMinus = new Text("B-");
+        Text b = new Text("B");
+        Text bPlus = new Text("B+");
+        Text aMinus = new Text("A-");
+        Text a = new Text("A");
+        Text aPlus = new Text("A+");
+        f.setFont(boldEntryFont);
+        dMinus.setFont(boldEntryFont);
+        d.setFont(boldEntryFont);
+        dPlus.setFont(boldEntryFont);
+        cMinus.setFont(boldEntryFont);
+        c.setFont(boldEntryFont);
+        cPlus.setFont(boldEntryFont);
+        bMinus.setFont(boldEntryFont);
+        b.setFont(boldEntryFont);
+        bPlus.setFont(boldEntryFont);
+        aMinus.setFont(boldEntryFont);
+        a.setFont(boldEntryFont);
+        aPlus.setFont(boldEntryFont);
+        gridPane.add(f, 0, 2);
+        gridPane.add(dMinus, 0, 3);
+        gridPane.add(d, 0, 4);
+        gridPane.add(dPlus, 0, 5);
+        gridPane.add(cMinus, 0, 6);
+        gridPane.add(c, 0, 7);
+        gridPane.add(cPlus, 0, 8);
+        gridPane.add(bMinus, 0, 9);
+        gridPane.add(b, 0, 10);
+        gridPane.add(bPlus, 0, 11);
+        gridPane.add(aMinus, 0, 12);
+        gridPane.add(a, 0, 13);
+        gridPane.add(aPlus, 0, 14);
+
+        TextField fUpperBoundField = new TextField();
+        fUpperBoundField.setMaxWidth(200);
+        gridPane.add(fUpperBoundField, 2,2);
+        TextField dMinusLowerBoundField = new TextField();
+        dMinusLowerBoundField.setMaxWidth(200);
+        gridPane.add(dMinusLowerBoundField, 1, 3);
+        TextField dMinusUpperBoundField = new TextField();
+        dMinusUpperBoundField.setMaxWidth(200);
+        gridPane.add(dMinusUpperBoundField, 2, 3);
+        TextField dLowerBoundField = new TextField();
+        TextField dUpperBoundField = new TextField();
+        TextField dPlusLowerBoundField = new TextField();
+        TextField dPlusUpperBoundField = new TextField();
+        TextField cMinusLowerBoundField = new TextField();
+        TextField cMinusUpperBoundField = new TextField();
+        TextField cLowerBoundField = new TextField();
+        TextField cUpperBoundField = new TextField();
+        TextField cPlusLowerBoundField = new TextField();
+        TextField cPlusUpperBoundField = new TextField();
+        TextField bMinusLowerBoundField = new TextField();
+        TextField bMinusUpperBoundField = new TextField();
+        TextField bLowerBoundField = new TextField();
+        TextField bUpperBoundField = new TextField();
+        TextField bPlusLowerBoundField = new TextField();
+        TextField bPlusUpperBoundField = new TextField();
+        TextField aMinusLowerBoundField = new TextField();
+        TextField aMinusUpperBoundField = new TextField();
+        TextField aLowerBoundField = new TextField();
+        TextField aUpperBoundField = new TextField();
+        TextField aPlusLowerBoundField = new TextField();
+        fUpperBoundField.setId("fUpperBoundField");
+        dMinusLowerBoundField.setId("dMinusLowerBoundField");
+        dMinusUpperBoundField.setId("dMinusUpperBoundField");
+        dLowerBoundField.setId("dLowerBoundField");
+        dUpperBoundField.setId("dUpperBoundField");
+        dPlusLowerBoundField.setId("dPlusLowerBoundField");
+        dPlusUpperBoundField.setId("dPlusUpperBoundField");
+        cMinusLowerBoundField.setId("cMinusLowerBoundField");
+        cMinusUpperBoundField.setId("cMinusUpperBoundField");
+        cLowerBoundField.setId("cLowerBoundField");
+        cUpperBoundField.setId("cUpperBoundField");
+        cPlusLowerBoundField.setId("cPlusLowerBoundField");
+        cPlusUpperBoundField.setId("cPlusUpperBoundField");
+        bMinusLowerBoundField.setId("bMinusLowerBoundField");
+        bMinusUpperBoundField.setId("bMinusUpperBoundField");
+        bLowerBoundField.setId("bLowerBoundField");
+        bUpperBoundField.setId("bUpperBoundField");
+        bPlusLowerBoundField.setId("bPlusLowerBoundField");
+        bPlusUpperBoundField.setId("bPlusUpperBoundField");
+        aMinusLowerBoundField.setId("aMinusLowerBoundField");
+        aMinusUpperBoundField.setId("aMinusUpperBoundField");
+        aLowerBoundField.setId("aLowerBoundField");
+        aUpperBoundField.setId("aUpperBoundField");
+        aPlusLowerBoundField.setId("aPlusLowerBoundField");
+
+
+        Text instructionOne = new Text("If no plus/minus scale,\nleave those boxes blank");
+        instructionOne.setFont(boldEntryFont);
+        gridPane.add(instructionOne,0,16, 5,5);
+        TextArea lowBoundInstruction = new TextArea("Low Bound");
+        TextArea highBoundInstruction = new TextArea("High Bound");
+        lowBoundInstruction.setMaxWidth(200);
+        highBoundInstruction.setMaxWidth(200);
+        lowBoundInstruction.setEditable(false);
+        highBoundInstruction.setEditable(false);
+        gridPane.add(lowBoundInstruction,0,15);
+        gridPane.add(highBoundInstruction, 1, 15);
+
+
+
+
+        newClassScene = new Scene(gridPane, defaultWidth, defaultHeight);
+        newClassScene.getStylesheets().add
+                (GradeTracker.class.getResource("Theme.css").toExternalForm());
+        return newClassScene;
     }
 }

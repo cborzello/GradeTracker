@@ -11,8 +11,9 @@ public class Class {
     ArrayList<Coursework> courseworks;
     ArrayList<Category> categories;
 
-    public Class(String name, GradingScale gradingScale) {
+    public Class(String name, String professor, GradingScale gradingScale) {
         this.name = name;
+        this.professor = professor;
         this.gradingScale = gradingScale;
         courseworks = new ArrayList<Coursework>();
         categories = new ArrayList<Category>();
