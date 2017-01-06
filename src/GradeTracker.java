@@ -41,6 +41,12 @@ public class GradeTracker extends Application implements EventHandler {
             }else if(buttonId.equals("NewClass")) {
                 Scene newClass = SceneBuilder.BuildNewClassScene(this);
                 primaryStage.setScene(newClass);
+            }else if(buttonId.equals("Create")) {
+                //Create class
+                System.out.println("Create class");
+            }else if (buttonId.equals("Back")){
+                Scene menu = SceneBuilder.BuildMenuScene(this);
+                primaryStage.setScene(menu);
             }
         }
     }
