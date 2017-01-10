@@ -128,6 +128,7 @@ public class SceneBuilder{
         Text classText = new Text("Class Name:  ");
         classText.setFont(boldEntryFont);
         TextField classField = new TextField();
+        classField.setPromptText("Class Name");
         classField.setFont(entryFont);
         gridPane.add(classText, 0, 0);
         gridPane.add(classField, 1, 0);
@@ -135,6 +136,7 @@ public class SceneBuilder{
         Text professorText = new Text("Professor:     ");
         professorText.setFont(boldEntryFont);
         TextField professorField = new TextField();
+        professorField.setPromptText("Professor Name");
         professorField.setFont(entryFont);
         gridPane.add(professorText,0, 1);
         gridPane.add(professorField, 1, 1);
